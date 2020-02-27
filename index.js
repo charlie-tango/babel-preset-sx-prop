@@ -1,6 +1,6 @@
-import jsx from '@babel/plugin-transform-react-jsx';
-import pragmatic from '@emotion/babel-plugin-jsx-pragmatic';
-import emotion from 'babel-plugin-emotion';
+const jsx = require('@babel/plugin-transform-react-jsx');
+const pragmatic = require('@emotion/babel-plugin-jsx-pragmatic');
+const emotion = require('babel-plugin-emotion');
 
 let pragmaName = '___EmotionJSX';
 
@@ -9,7 +9,7 @@ let pragmaName = '___EmotionJSX';
 // and if babel-plugin-emotion adds more options we can add them since this lives in
 // the same repo as babel-plugin-emotion
 
-export default (api, { pragma, sourceMap, autoLabel, labelFormat, instances, ...options } = {}) => {
+module.exports = (api, { pragma, sourceMap, autoLabel, labelFormat, instances, ...options } = {}) => {
   return {
     plugins: [
       [

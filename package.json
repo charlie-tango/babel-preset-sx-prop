@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "Charlie Tango",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlie-tango/babel-preset-sx-prop.git"
+  },
   "private": false,
   "keywords": [
     "emotion",

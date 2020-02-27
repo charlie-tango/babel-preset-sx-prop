@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "Charlie Tango",
   "license": "MIT",
+  "private": false,
   "keywords": [
     "emotion",
     "styled-system",

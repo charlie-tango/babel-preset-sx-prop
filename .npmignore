@@ -4,4 +4,6 @@ build
 docs
 tools
 src
+.idea
+.prettierrc
 commitlint.config.js

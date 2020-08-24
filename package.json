@@ -1,6 +1,6 @@
 {
   "name": "@charlietango/babel-preset-sx-prop",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Preset to consume the sx prop on all elements",
   "main": "index.js",
   "author": "Charlie Tango",

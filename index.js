@@ -16,7 +16,7 @@ module.exports = (api, { pragma, sourceMap, autoLabel, labelFormat, instances, .
         pragmatic,
         {
           export: 'jsx',
-          module: '@charlietango/ui',
+          module: '@charlietango/emotion-sx',
           import: pragmaName,
         },
       ],

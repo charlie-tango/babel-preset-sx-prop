@@ -1,6 +1,7 @@
-const jsx = require('@babel/plugin-transform-react-jsx');
-const pragmatic = require('@emotion/babel-plugin-jsx-pragmatic');
-const emotion = require('babel-plugin-emotion');
+import jsx from '@babel/plugin-transform-react-jsx';
+import jsxDev from '@babel/plugin-transform-react-jsx-development';
+import pragmatic from '@emotion/babel-plugin-jsx-pragmatic';
+import emotion from 'babel-plugin-emotion';
 
 let pragmaName = '___EmotionJSX';
 
@@ -9,10 +10,13 @@ let pragmaName = '___EmotionJSX';
 // and if babel-plugin-emotion adds more options we can add them since this lives in
 // the same repo as babel-plugin-emotion
 
-module.exports = (api, { pragma, sourceMap, autoLabel, labelFormat, instances, ...options } = {}) => {
+module.exports = (
+  api,
+  { pragma, sourceMap, autoLabel, labelFormat, instances, development = false, ...options } = {},
+) => {
   return {
     plugins: [
-      [
+      options.runtime !== 'automatic' && [
         pragmatic,
         {
           export: 'jsx',
@@ -20,7 +24,17 @@ module.exports = (api, { pragma, sourceMap, autoLabel, labelFormat, instances, .
           import: pragmaName,
         },
       ],
-      [jsx, { pragma: pragmaName, pragmaFrag: 'React.Fragment', ...options }],
+      [
+        // this is handled by @babel/preset-react, consider switching to it
+        // right now I'm not sure if its dev plugins are compatible with our pragmatic plugin
+        development ? jsxDev : jsx,
+        {
+          ...(options.runtime === 'automatic'
+            ? { importSource: '@emotion/core' }
+            : { pragma: pragmaName, pragmaFrag: 'React.Fragment' }),
+          ...options,
+        },
+      ],
       [
         emotion,
         {

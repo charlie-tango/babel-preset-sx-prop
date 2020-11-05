@@ -1,7 +1,7 @@
-import jsx from '@babel/plugin-transform-react-jsx';
-import jsxDev from '@babel/plugin-transform-react-jsx-development';
-import pragmatic from '@emotion/babel-plugin-jsx-pragmatic';
-import emotion from 'babel-plugin-emotion';
+const jsx = require('@babel/plugin-transform-react-jsx');
+const jsxDev = require('@babel/plugin-transform-react-jsx-development');
+const pragmatic = require('@emotion/babel-plugin-jsx-pragmatic');
+const emotion = require('babel-plugin-emotion');
 
 let pragmaName = '___EmotionJSX';
 
